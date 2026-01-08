@@ -31,6 +31,7 @@ axios.get(endpoint)
             // valorizziamo la variabile di accumulo di output (stringa)
             postsOutput += `
             <div class="card">
+                <img class="pin" src="img/pin.svg" alt="">
                 <img src="${url}" alt="">
                 <h2>${title}</h2>
                 <p>${date}</p>
