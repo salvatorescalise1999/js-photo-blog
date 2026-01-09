@@ -90,3 +90,31 @@ img {
     }
 
 }
+
+/* OVERLAY */
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+#overlay img {
+    max-width: 60%;
+    max-height: 60%;
+    margin-top: 30px;
+}
+
+#overlay button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
