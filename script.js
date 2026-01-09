@@ -1,6 +1,9 @@
 // seleziono elemento di container output
 const outputCont = document.getElementById("container");
-// console.log(outputCont);
+
+const overlay = document.getElementById("overlay");
+const overlayImg = overlay.querySelector("img");
+const overlayBtn = overlay.querySelector("button");
 
 // creiamo ref a endpoint
 const endpoint = "https://lanciweb.github.io/demo/api/pictures/";
@@ -26,7 +29,7 @@ axios.get(endpoint)
             // const url = post.url;
 
             const { title, date, url, } = post;
-
+            
 
             // valorizziamo la variabile di accumulo di output (stringa)
             postsOutput += `
@@ -37,16 +40,32 @@ axios.get(endpoint)
                 <p>${date}</p>
             </div>`;
 
-            console.log("alla iterazione numero", index, postsOutput);
-
         });
 
         // inseriamo in pagina le card accumulate
         outputCont.innerHTML = postsOutput;
 
+        // AGGIUNGERE EVENTO CLICK A OGNI FOTO
+        const cards = outputCont.getElementsByClassName("card");
+
+        for (let i = 0; i < cards.length; i++) {
+            // selezioniamo direttamente la foto (seconda immagine della card)
+            const img = cards[i].getElementsByTagName("img")[1];
+
+            img.addEventListener("click", function() {
+                overlayImg.src = img.src;
+                overlay.style.display = "flex";
+            });
+        }
+
+        // BOTTONE CHIUDI OVERLAY
+        overlayBtn.addEventListener("click", function() {
+            overlay.style.display = "none";
+        });
+
 
     })
-    .catch()
+    .catch(error => console.error("Errore nella chiamata API:", error));
 
 
 

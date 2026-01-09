@@ -7,7 +7,7 @@
 
 body {
     background-image: url(/img/cork.png);
-    font-family: ‘Edu Tas Beginner’, sans-serif;
+    font-family: 'Edu Tas Beginner', sans-serif;
 }
 
 header {
@@ -39,7 +39,7 @@ header h1 {
 }
 
 p {
-    font-family: ‘Sometype Mono’, ‘monospace’;
+    font-family: 'Sometype Mono', monospace;
 }
 
 /* PUNTINA */
@@ -97,14 +97,11 @@ img {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.8);
-
-    display: flex;
+    display: none; /* nascosto inizialmente */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     z-index: 1000;
-
 }
 
 #overlay img {
